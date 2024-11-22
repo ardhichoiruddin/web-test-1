@@ -5,7 +5,7 @@ interface BackgroundGradientProps {
 }
 
 const BackgroundGradient: FC<BackgroundGradientProps> = ({ children }) => {
-  return <div>{children}</div>;
+  return <section className="bg-[#09aac6]">{children}</section>;
 };
 
 export default BackgroundGradient;
