@@ -1,11 +1,17 @@
 import { FC, useState, useRef, useEffect, ReactNode } from "react";
 import Link from "next/link";
 
-interface DropdownProps {
-  label: ReactNode | string;
+interface DropdownListsProps {
+  name: string;
+  path: string;
 }
 
-const Dropdown: FC<DropdownProps> = ({ label }) => {
+interface DropdownProps {
+  label: ReactNode | string;
+  lists: DropdownListsProps[];
+}
+
+const Dropdown: FC<DropdownProps> = ({ label, lists }) => {
   const [dropdownIsOpen, setDropdownIsOpen] = useState(false);
   const boxRef = useRef<HTMLDivElement | null>(null);
 
@@ -20,18 +26,12 @@ const Dropdown: FC<DropdownProps> = ({ label }) => {
       <div className="absolute top-0 w-[240px] mt-[30px]">
         <div ref={boxRef} className="bg-white rounded-[8px] p-4 shadow-lg">
           <ul className="text-[##344054]">
-            <li className="mb-3 last:mb-0">
-              <Link href={"/"}>채용</Link>
-            </li>
-            <li className="mb-3 last:mb-0">
-              <Link href={"/"}>해외 개발자 원격 채용</Link>
-            </li>
-            <li className="mb-3 last:mb-0">
-              <Link href={"/"}>외국인 원격 채용 (비개발 직군)</Link>
-            </li>
-            <li className="mb-3 last:mb-0">
-              <Link href={"/"}>한국어 가능 외국인 채용</Link>
-            </li>
+            {lists &&
+              lists.map((it, index) => (
+                <li key={index} className="mb-3 last:mb-0">
+                  <Link href={it.path}>{it.name}</Link>
+                </li>
+              ))}
           </ul>
         </div>
       </div>
