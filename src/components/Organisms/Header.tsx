@@ -2,7 +2,7 @@ import { FC } from "react";
 import Link from "next/link";
 
 import WhiteLogo from "../Atoms/WhiteLogo";
-import Container from "./Container";
+import Container from "../Molecules/Container";
 import Button from "../Atoms/Button";
 import Dropdown from "../Molecules/Dropdown";
 

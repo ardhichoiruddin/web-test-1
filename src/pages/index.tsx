@@ -1,11 +1,14 @@
 import type { ReactElement } from "react";
 
-import Button from "@/components/Atoms/Button";
-import Container from "@/components/Organisms/Container";
 import MainLayout from "@/components/Templates/MainLayout";
+import Home from "@/components/Pages/Home";
 
 const HomeIndex = () => {
-  return <></>;
+  return (
+    <>
+      <Home />
+    </>
+  );
 };
 
 HomeIndex.getLayout = function getLayout(page: ReactElement) {
